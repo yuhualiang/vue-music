@@ -5,14 +5,14 @@
 </template>
 
 <script type="text/ecmascript-6">
-import MHeader from "components/m-header/m-header";
+import MHeader from 'components/m-header/m-header'
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     MHeader
   }
-};
+}
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus"></style>

@@ -41,6 +41,11 @@ export default {
             'http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/1949357.jpeg'
         },
         {
+          linkUrl: 'https://y.qq.com/n/yqq/album/https://y.qq.com/m/digitalbum/gold/index.html?openinqqmusic=1&_video=true&mid=000d6fVY1GkGOE&g_f=yqqjiaodian.html',
+          picUrl:
+            'http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/1952901.jpg'
+        },
+        {
           linkUrl: 'https://y.qq.com/n/yqq/album/000BRYLE470IlC.html',
           picUrl:
             'http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/1951765.jpg'

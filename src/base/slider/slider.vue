@@ -7,9 +7,10 @@
     </div>
 </template>
 <script type="text/ecmascript-6">
-// import BScroll from 'better-scroll'
+import BScroll from 'better-scroll'
 import {addClass} from 'common/js/dom'
 export default {
+  name: 'slider',
   props: {
     loop: {
       type: Boolean,
@@ -33,7 +34,7 @@ export default {
   methods: {
     _setSliderWidth() {
       this.children = this.$refs.sliderGroup.children
-
+      console.log(this.children.length)
       let width = 0
       let sliderWidth = this.$refs.slider.clientWidth
       for (let i = 0; i < this.children.length; i++) {
@@ -47,10 +48,20 @@ export default {
       if (this.loop) {
         width += 2 * sliderWidth
       }
+
       this.$refs.sliderGroup.style.width = width + 'px'
     },
     _initSlider() {
-
+      this.slider = new BScroll(this.$refs.slider, {
+        scrollX: true,
+        scrollY: false,
+        momentum: false,
+        snap: {
+          loop: this.loop,
+          threhold: 0.3,
+          speed: 400
+        }
+      })
     }
   }
 }

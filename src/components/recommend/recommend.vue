@@ -36,9 +36,14 @@ export default {
             'http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/1951386.jpg'
         },
         {
-          linkUrl: 'https://y.qq.com/n/yqq/album/000BRYLE470IlC.html',
+          linkUrl: 'https://y.qq.com/n/yqq/album/003ilVgx3NtecU.html',
           picUrl:
             'http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/1949357.jpeg'
+        },
+        {
+          linkUrl: 'https://y.qq.com/n/yqq/album/000BRYLE470IlC.html',
+          picUrl:
+            'http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/1951765.jpg'
         }
       ]
     }

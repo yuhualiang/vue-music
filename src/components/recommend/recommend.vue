@@ -26,10 +26,14 @@
           </ul>
         </div>
       </div>
+      <div class="loading-container" v-show="!discList.length">
+        <loading></loading>
+      </div>
     </scroll>
   </div>
 </template>
 <script>
+import Loading from 'base/loading/loading'
 import Scroll from 'base/scroll/scroll'
 import Slider from 'base/slider/slider'
 import {getDiscList} from 'api/recommend'
@@ -97,7 +101,7 @@ export default {
       }
     }
   },
-  components: { Slider, Scroll }
+  components: { Slider, Scroll, Loading }
 }
 </script>
 <style scoped lang="stylus" rel="stylesheet/stylus">

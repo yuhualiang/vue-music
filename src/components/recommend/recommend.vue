@@ -15,6 +15,8 @@
 </template>
 <script>
 import Slider from 'base/slider/slider'
+import {getDiscList} from 'api/recommend'
+import {ERR_OK} from 'api/config'
 
 export default {
   data() {
@@ -51,6 +53,18 @@ export default {
             'http://y.gtimg.cn/music/common/upload/MUSIC_FOCUS/1951765.jpg'
         }
       ]
+    }
+  },
+  created() {
+    this._getDiscList()
+  },
+  methods: {
+    _getDiscList() {
+      getDiscList().then((res) => {
+        if (res.code === ERR_OK) {
+          console.log(res.data.list)
+        }
+      })
     }
   },
   components: { Slider }

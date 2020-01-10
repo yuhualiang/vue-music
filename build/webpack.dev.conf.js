@@ -71,7 +71,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         axios.get(url, {
           headers: {
             referer: 'https://c.y.qq.com/',
-            host: 'c.y.qq.com'
+            host: 'u.y.qq.com'
           },
           params: req.query
         }).then((response) => {

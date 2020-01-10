@@ -7,14 +7,12 @@ import {
 export function getSingerList() {
   const url = '/api/getSingerList'
   const data = Object.assign({}, commonParams, {
-    '-': 'getUCGI3576305317716697',
-    g_tk: 5381,
-    loginUin: 1547719290,
     hostUin: 0,
-    format: 'json',
-    notice: 0,
-    platform: 'yqq.json',
     needNewCode: 0,
+    platform: 'yqq.json',
+    g_tk: 5381,
+    format: 'json',
+    inCharset: 'utf8',
     data: {
       'comm': {
         'ct': 24,
@@ -32,7 +30,9 @@ export function getSingerList() {
           'cur_page': 1
         }
       }
-    }
+    },
+    loginUin: 1547719290,
+    '-': 'getUCGI9956005171968898'
   })
 
   return axios.get(url, {

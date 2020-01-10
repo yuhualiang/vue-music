@@ -13,14 +13,15 @@ export default {
     }
   },
   created() {
-    // this._getSingerList()
+    this._getSingerList()
   },
   methods: {
     _getSingerList() {
       getSingerList().then((res) => {
         if (res.code === ERR_OK) {
-          // this.singers = res.data.list
-          console.log(res)
+          console.log(res.singerList.data)
+        } else {
+          console.log('kk')
         }
       })
     }

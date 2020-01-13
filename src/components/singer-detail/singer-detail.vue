@@ -5,13 +5,26 @@
 </template>
 <script type="text/ecmascript-6">
 import { mapGetters } from 'vuex'
+import { ERR_OK } from 'api/config'
+import { getSingerDetail } from 'api/singer'
 
 export default {
   computed: {
     ...mapGetters(['singer'])
   },
   created() {
-    console.log(this.singer)
+    this._getDetail()
+  },
+  methods: {
+    _getDetail() {
+      getSingerDetail(this.singer.id).then((res) => {
+        if (res.code === ERR_OK) {
+          console.log(res)
+        } else {
+          console.log(123)
+        }
+      })
+    }
   }
 }
 </script>

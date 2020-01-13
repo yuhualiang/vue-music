@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 'use strict'
 const utils = require('./utils')
 const webpack = require('webpack')
@@ -50,7 +51,6 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       poll: config.dev.poll
     },
     before(app) {
-      // 推荐歌单接口
       app.get('/api/getDiscList', function (req, res) {
         var url = 'https://c.y.qq.com/splcloud/fcgi-bin/fcg_get_diss_by_tag.fcg' // 原api
         axios.get(url, {
@@ -64,20 +64,84 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         }).catch((e) => {
           console.log(e)
         })
-      }),
-      // 歌手列表接口
-      app.get('/api/getSingerList', function(req, res) {
-        var url = 'https://u.y.qq.com/cgi-bin/musicu.fcg'
+      })
+      app.get('/api/getSingerList', function (req, res) {
+        var url = 'https://u.y.qq.com/cgi-bin/musicu.fcg' // 原api
         axios.get(url, {
           headers: {
-            referer: 'https://c.y.qq.com/',
+            referer: 'https://u.y.qq.com/',
             host: 'u.y.qq.com'
           },
           params: req.query
         }).then((response) => {
           res.json(response.data)
         }).catch((e) => {
-          console.log('mei you shu ju', e)
+          console.log(e)
+        })
+      })
+      app.get('/api/getSingerDetailList', function (req, res) {
+        var url = 'https://u.y.qq.com/cgi-bin/musicu.fcg' // 原api
+        axios.get(url, {
+          headers: {
+            referer: 'https://u.y.qq.com',
+            host: 'u.y.qq.com'
+          },
+          params: req.query
+        }).then((response) => {
+          res.json(response.data)
+        }).catch((e) => {
+          console.log(e)
+        })
+      })
+      app.get('/api/getSongVkey', function (req, res) {
+        var url = 'https://u.y.qq.com/cgi-bin/musicu.fcg' // 原api
+        axios.get(url, {
+          headers: {
+            referer: 'https://u.y.qq.com',
+            host: 'u.y.qq.com'
+          },
+          params: req.query
+        }).then((response) => {
+          res.json(response.data)
+        }).catch((e) => {
+          console.log(e)
+        })
+      })
+      app.get('/api/getDiscSongVkey', function (req, res) {
+        var url = 'https://u.y.qq.com/cgi-bin/musicu.fcg' // 原api
+        axios.get(url, {
+          headers: {
+            referer: 'https://u.y.qq.com',
+            host: 'u.y.qq.com'
+          },
+          params: req.query
+        }).then((response) => {
+          res.json(response.data)
+        }).catch((e) => {
+          console.log(e)
+        })
+      })
+      app.get('/api/lyric', function (req, res) {
+        var url = 'https://c.y.qq.com/lyric/fcgi-bin/fcg_query_lyric_new.fcg'
+
+        axios.get(url, {
+          headers: {
+            referer: 'https://c.y.qq.com/',
+            host: 'c.y.qq.com'
+          },
+          params: req.query
+        }).then((response) => {
+          var ret = response.data
+          if (typeof ret === 'string') {
+            var reg = /^\w+\(({[^()]+})\)$/
+            var matches = ret.match(reg)
+            if (matches) {
+              ret = JSON.parse(matches[1])
+            }
+          }
+          res.json(ret)
+        }).catch((e) => {
+          console.log(e)
         })
       })
     }

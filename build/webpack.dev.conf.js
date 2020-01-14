@@ -93,8 +93,8 @@ const devWebpackConfig = merge(baseWebpackConfig, {
           console.log(e)
         })
       })
-      app.get('/api/getSongVkey', function (req, res) {
-        var url = 'https://u.y.qq.com/cgi-bin/musicu.fcg' // 原api
+      app.get('/api/getSongVkey', function(req, res) {
+        var url = 'https://u.y.qq.com/cgi-bin/musicu.fcg'
         axios.get(url, {
           headers: {
             referer: 'https://u.y.qq.com',

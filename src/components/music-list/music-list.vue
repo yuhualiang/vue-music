@@ -1,8 +1,10 @@
 <template>
   <div class="music-list">
-    <i class="icon-back"></i>
-    <h1 class="title">{{title}}</h1>
-    <div class="bg-image">
+    <div class="back">
+      <i class="icon-back"></i>
+    </div>
+    <h1 class="title" v-html="title"></h1>
+    <div class="bg-image" :style="bgStyle">
       <div class="filter"></div>
     </div>
   </div>
@@ -21,6 +23,11 @@ export default {
     title: {
       type: String,
       default: ''
+    }
+  },
+  computed: {
+    bgStyle() {
+      return `background-image: url(${this.bgImage})`
     }
   }
 }
